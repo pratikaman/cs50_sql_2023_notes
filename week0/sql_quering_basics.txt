@@ -1,0 +1,61 @@
+// select command
+SELECT column1, column2, ... FROM table_name;
+
+
+// DISTINCT
+// SELECT DISTINCT publisher from 'longlist';
+
+
+// limit command
+SELECT column1, column2, ... FROM table_name LIMIT number_of_rows;
+
+// where command
+// = , != , <> , NOT  
+// AND, OR, ()
+// IS NULL, IS NOT NULL
+SELECT column1, column2, ... FROM table_name WHERE condition;
+example1- SELECT * FROM employees WHERE age > 30;
+example2- SELECT title, author from 'longlist' WHERE year = 2022 or year = 2023;
+example3- SELECT title, author from 'longlist' WHERE year = 2023 and format = 'hardcover';
+example4- SELECT title, author from 'longlist' WHERE (year = 2023 or year = 2022) and format != 'hardcover';
+example5- SELECT title, author from 'longlist' WHERE translator IS NULL;
+
+
+// like command
+// % , _
+SELECT title from 'longlist' WHERE title LIKE '%love%';
+SELECT title from 'longlist' WHERE title LIKE 'P_re';
+
+
+// range conditons
+// BETWEEN ... AND ...
+// >, <, 
+select title from 'longlist' where year >= '2019' and year <= '2022';
+select title from 'longlist' where year between '2019' and '2022';
+SELECT title, rating, votes FROM 'longlist' WHERE rating > 4.0 AND votes > 10000;
+
+// order by
+// SELECT title, rating FROM 'longlist' ORDER BY rating LIMIT 10;
+// SELECT title, rating FROM 'longlist' ORDER BY rating ASC LIMIT 10;
+// SELECT title, rating FROM 'longlist' ORDER BY rating DESC LIMIT 10;
+// SELECT title, rating, votes FROM 'longlist' ORDER BY rating DESC, votes DESC LIMIT 10;
+
+// aggregate functions
+// COUNT, AVG, MIN, MAX, SUM, ROUND
+
+// SELECT AVG(rating) FROM 'longlist';
+// SELECT ROUND(AVG(rating), 2) FROM 'longlist';
+// SELECT MIN(rating) FROM 'longlist';
+// SELECT MAX(rating) FROM 'longlist';
+// SELECT MAX(title), MIN(title) FROM 'longlist';  // will sort alphabeticaly
+// SELECT SUM(votes) FROM 'longlist';
+// SELECT COUNT(*) FROM 'longlist';
+// SELECT COUNT(translator) FROM 'longlist';
+// SELECT COUNT(*) FROM 'longlist' WHERE year = 2023;
+// SELECT COUNT(publisher) from 'longlist';
+// SELECT COUNT(DISTINCT publisher) from 'longlist';
+
+
+// AS
+// SELECT ROUND(AVG(rating), 2) AS 'avg' FROM 'longlist';
+
